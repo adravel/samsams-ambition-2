@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
         // Manage input for movement
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
+        if(change.x == 0)
+            change.y = Input.GetAxisRaw("Vertical");
 
         // Update animation and movement
         if (change != Vector3.zero)
