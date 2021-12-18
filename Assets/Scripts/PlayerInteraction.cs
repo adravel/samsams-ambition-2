@@ -42,7 +42,8 @@ public class PlayerInteraction : MonoBehaviour
             previousDirection = direction;
 
         // Raycasting
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, layerMask);
+        Debug.DrawRay(transform.position + direction * 0.25f, direction * 0.5f, Color.white);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + direction * 0.25f, direction, 0.5f, layerMask);
 
         // If raycast hit an object
         if (hit)
@@ -53,6 +54,7 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             interactable = null;
+            Debug.Log("No collectable item found.");
         }
     }
 }
