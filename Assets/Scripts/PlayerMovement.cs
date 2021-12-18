@@ -23,6 +23,18 @@ public class PlayerMovement : MonoBehaviour
         if(change.x == 0)
             change.y = Input.GetAxisRaw("Vertical");
 
+        // Run
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 6;
+            animator.speed = 1.5f;
+        }
+        else
+        {
+            speed = 4;
+            animator.speed = 1f;
+        }
+
         // Update animation and movement
         if (change != Vector3.zero)
         {
