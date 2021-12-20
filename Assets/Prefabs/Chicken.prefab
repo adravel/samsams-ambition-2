@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4057946380113626466}
   - component: {fileID: 4057946380113626469}
   - component: {fileID: 4057946380113626465}
-  - component: {fileID: 6628111278448106061}
   - component: {fileID: 5481804139786303088}
+  - component: {fileID: -8056255528318670071}
   m_Layer: 6
   m_Name: Chicken
   m_TagString: Untagged
@@ -153,7 +153,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0203114, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6628111278448106061
+--- !u!114 &5481804139786303088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057946380113626468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0d3a546a44ed84e88d50eade6f2fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectableName: Chicken
+  isCollected: 0
+--- !u!114 &-8056255528318670071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,17 +183,4 @@ MonoBehaviour:
   isWalking: 0
   walkTime: 1
   waitTime: 3
---- !u!114 &5481804139786303088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4057946380113626468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b0d3a546a44ed84e88d50eade6f2fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectableName: Chicken
-  isCollected: 0
+  isBigAnimal: 0

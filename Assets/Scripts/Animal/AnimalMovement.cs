@@ -8,17 +8,21 @@ public class AnimalMovement : MonoBehaviour
     public bool isWalking;
     public float walkTime;
     public float waitTime;
+    public bool isBigAnimal;
+
     private float walkCounter;
     private float waitCounter;
     private Rigidbody2D myRigidBody;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private int walkDirection;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         waitCounter = waitTime;
         walkCounter = walkTime;
@@ -27,7 +31,7 @@ public class AnimalMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(isWalking)
         {
@@ -44,16 +48,20 @@ public class AnimalMovement : MonoBehaviour
 
             switch (walkDirection)
             {
-                case 0:
+                case 0: // Down
                     myRigidBody.velocity = new Vector2(0, speed);
                     break;
-                case 1:
+                case 1: // Left
                     myRigidBody.velocity = new Vector2(-speed, 0);
+                    if(isBigAnimal)
+                        spriteRenderer.flipX = true;
                     break;
-                case 2:
+                case 2: // Right
                     myRigidBody.velocity = new Vector2(speed, 0);
+                    if(isBigAnimal)
+                        spriteRenderer.flipX = false;
                     break;
-                case 3:
+                case 3: // Up
                     myRigidBody.velocity = new Vector2(0, -speed);
                     break;
             }
@@ -66,10 +74,7 @@ public class AnimalMovement : MonoBehaviour
             myRigidBody.velocity = Vector2.zero;
 
             if(waitCounter < 0)
-            {
                 ChooseDirection();
-            }
-            
         }
     }
 
