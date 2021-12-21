@@ -182,5 +182,5 @@ MonoBehaviour:
   speed: 1
   isWalking: 0
   walkTime: 2
-  waitTime: 1
+  waitTime: 5
   isBigAnimal: 1

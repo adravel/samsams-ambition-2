@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    public GameObject questionMark;
+
     private Vector3 previousDirection = Vector3.zero;
     private int layerMask;
     private Transform interactable = null;
@@ -17,6 +19,7 @@ public class PlayerInteraction : MonoBehaviour
     void Start()
     {
         layerMask = LayerMask.GetMask("Interactable");
+        questionMark.SetActive(false);
     }
 
     void FixedUpdate()
@@ -42,19 +45,21 @@ public class PlayerInteraction : MonoBehaviour
             previousDirection = direction;
 
         // Raycasting
-        Debug.DrawRay(transform.position + direction * 0.25f, direction * 0.5f, Color.white);
+        // Debug.DrawRay(transform.position + direction * 0.25f, direction * 0.5f, Color.white);
         RaycastHit2D hit = Physics2D.Raycast(transform.position + direction * 0.25f, direction, 0.5f, layerMask);
 
-        // If raycast hit an object
+        // Show question mark if raycast hit an object
         if (hit)
         {
             interactable = hit.transform;
-            Debug.Log("You found a collectable item!");
+            questionMark.SetActive(true);
+            // Debug.Log("You found a collectable item!");
         }
         else
         {
             interactable = null;
-            Debug.Log("No collectable item found.");
+            questionMark.SetActive(false);
+            // Debug.Log("No collectable item found.");
         }
     }
 }
